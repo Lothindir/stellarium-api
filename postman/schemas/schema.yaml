@@ -9,6 +9,23 @@ paths:
         post:
             description: Authenticate the user and returns the session cookie
             security: []
+            requestBody:
+                required: true
+                content:
+                    multipart/form-data:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    format: email
+                                password:
+                                    type: string
+                                    format: password
+                                remeberMe:
+                                    type: string
+                                    description: Optional. If defined the value can be whatever.
+
             responses:
                 '200':
                     description: >

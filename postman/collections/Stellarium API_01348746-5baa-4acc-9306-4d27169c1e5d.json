@@ -1,0 +1,162 @@
+{
+    "info": {
+        "_postman_id": "8008a3c0-ed76-4c10-890e-3781c35c104b",
+        "name": "Stellarium API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "/login",
+            "id": "d2905d1a-5d2a-4cce-b6ea-a32a6d3654f8",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                    }
+                ],
+                "url": {
+                    "raw": "{{baseUrl}}/login",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "login"
+                    ]
+                },
+                "description": "Authenticate the user and returns the session cookie"
+            },
+            "response": [
+                {
+                    "id": "9872c5bb-c0e2-47d3-b76a-2fb60cc6a66c",
+                    "name": "Successfully authenticated. The session ID is returned in a cookie named `adonis-session`. You need to include this cookie in subsequent requests. If the remeber me token is required it will be returned along the session cookie.\n",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "adonis-session",
+                                "value": "<API Key>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/login",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "login"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "Text",
+                    "header": [
+                        {
+                            "disabled": false,
+                            "description": {
+                                "content": "",
+                                "type": "text/plain"
+                            },
+                            "key": "Set-Cookie",
+                            "value": "adonis-session=abcde1234; Path=/; HttpOnly"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "Connected"
+                }
+            ]
+        },
+        {
+            "name": "/logout",
+            "id": "9d2465f7-b3d5-49a0-adf8-0b9842d73954",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/logout",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "logout"
+                    ]
+                },
+                "description": "Logs out the user"
+            },
+            "response": [
+                {
+                    "id": "64bbc4ff-9951-46c0-844d-1e7965c8c0d3",
+                    "name": "Successfully logged out the user",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "adonis-session",
+                                "value": "<API Key>"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/logout",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "logout"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "Text",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                        }
+                    ],
+                    "cookie": [],
+                    "responseTime": null,
+                    "body": "Disconnected"
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "67300e16-b468-4468-9d87-45d990348a8a",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "9166f5ed-a0ed-4164-bcbb-e585cafbb87a",
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "0cf2e652-f834-4e1e-8559-24f527a9de0c",
+            "key": "baseUrl",
+            "value": "localhost/api"
+        }
+    ]
+}
